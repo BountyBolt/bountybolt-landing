@@ -157,11 +157,11 @@ export default function Home() {
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center">How BountyBolt
                     Works</h2>
                 <p className="text-gray-400 mt-2 text-base sm:text-lg px-4 sm:px-12 lg:px-24 text-center">
-                    Our platform makes connecting backers and hunters in the Web3 ecosystem seamless, secure, and
+                    Our platform makes connecting backers and contributors in the Web3 ecosystem seamless, secure, and
                     rewarding. Here's how you can get started:
                 </p>
                 <div
-                    className="flex flex-col lg:flex-row items-center justify-around w-full mt-16 space-y-8 lg:space-y-0 lg:space-x-8">
+                    className="flex flex-col lg:flex-row items-center justify-around w-full mt-16 space-y-8 lg:space-y-0">
 
                     {/* Step 1 */}
                     <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
@@ -175,7 +175,7 @@ export default function Home() {
                         </div>
                         <h3 className="text-white text-lg sm:text-xl font-bold mb-2">1. Post or Claim a Bounty</h3>
                         <p className="text-gray-400 text-sm sm:text-base">
-                            Backers post tasks with crypto rewards. Hunters browse and claim tasks.
+                            Backers post tasks with crypto rewards. Contributors browse and claim tasks.
                         </p>
                     </div>
 
@@ -191,7 +191,7 @@ export default function Home() {
                         </div>
                         <h3 className="text-white text-lg sm:text-xl font-bold mb-2">2. Deliver the Solution</h3>
                         <p className="text-gray-400 text-sm sm:text-base">
-                            Hunters submit work (e.g., GitHub links or smart contracts).
+                            Contributors complete the work and submit a pull request.
                         </p>
                     </div>
 
@@ -207,7 +207,7 @@ export default function Home() {
                         </div>
                         <h3 className="text-white text-lg sm:text-xl font-bold mb-2">3. Get Paid</h3>
                         <p className="text-gray-400 text-sm sm:text-base">
-                            Backers approve, and funds are sent to the hunter’s wallet.
+                            The project maintainers approve, and funds are sent to the contributor’s wallet.
                         </p>
                     </div>
                 </div>
@@ -242,15 +242,16 @@ export default function Home() {
                     />
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-8 mt-10 text-left max-w-5xl ">
+                <div className="lg:grid flex flex-col sm:flex-row sm:items-center lg:grid-cols-3 gap-8 mt-10 text-left max-w-5xl ">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <CheckIcon className="h-6 w-6"/>
                         </div>
                         <div className="ml-4">
-                            <h3 className="text-white font-bold text-lg">Secure Escrow Contracts</h3>
+                            <h3 className="text-white font-bold text-lg">Community-Driven Funding</h3>
                             <p className="text-gray-400 mt-1 text-base">
-                                Funds are held in smart contracts and released only when tasks are completed.
+                                Anyone can fund an issue, boosting its resolution speed and empowering
+                                open-source innovation.
                             </p>
                         </div>
                     </div>
@@ -259,9 +260,9 @@ export default function Home() {
                             <CheckIcon className="h-6 w-6"/>
                         </div>
                         <div className="ml-4">
-                            <h3 className="text-white font-bold text-lg">Transparent Workflow</h3>
+                            <h3 className="text-white font-bold text-lg">Secure Escrow Contracts</h3>
                             <p className="text-gray-400 mt-1 text-base">
-                                Backers and hunters can track progress and approve solutions in real-time.
+                                Funds are held in smart contracts and released only when a pull request is approved.
                             </p>
                         </div>
                     </div>
@@ -274,7 +275,7 @@ export default function Home() {
                         <div className="ml-4">
                             <h3 className="text-white font-bold text-lg">Crypto Rewards</h3>
                             <p className="text-gray-400 mt-1 text-base">
-                                Hunters earn rewards directly to their wallets, making payments seamless and trustless.
+                                Contributors earn rewards directly to their wallets, making payments seamless and trustless.
                             </p>
                         </div>
                     </div>
@@ -343,16 +344,16 @@ export default function Home() {
                             <AccordionContent className="text-sm sm:text-base">
                                 BountyBolt is a decentralized bounty marketplace for Web3 projects. Backers can post
                                 tasks and
-                                fund them with cryptocurrency, while developers (hunters) solve them to earn rewards.
+                                fund them with cryptocurrency, while developers (contributors) solve them to earn rewards.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2" className="border-white/10 py-2">
                             <AccordionTrigger className="text-lg sm:text-xl hover:no-underline">
-                                Which cryptocurrencies are supported?
+                                What network will BountyBolt support?
                             </AccordionTrigger>
                             <AccordionContent className="text-sm sm:text-base">
-                                Currently, we support ETH and USDC on the Arbitrum network. We plan to expand support to
-                                more tokens in the future.
+                                BountyBolt will initially support the Arbitrum network, with plans to expand to other
+                                blockchains in the future.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-3" className="border-white/10 py-2">
@@ -366,11 +367,11 @@ export default function Home() {
                         </AccordionItem>
                         <AccordionItem value="item-4" className="border-white/10 py-2">
                             <AccordionTrigger className="text-lg sm:text-xl hover:no-underline">
-                                Who can join?
+                                How do I get paid on BountyBolt?
                             </AccordionTrigger>
                             <AccordionContent className="text-sm sm:text-base">
-                                Whether you’re a Web3 project backer or a developer looking for exciting opportunities,
-                                this platform is for you.
+                                Once a pull request is approved by the backer, funds will be released to the contributor’s wallet in the
+                                cryptocurrency of their choice. This will be automated through the use of oracles & smart contracts.
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
