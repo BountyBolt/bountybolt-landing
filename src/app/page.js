@@ -1,15 +1,14 @@
 import Image from "next/image";
-import dynamic from 'next/dynamic';
 import FormComp from "@/components/FormComp";
 import {FaBoltLightning, FaCodeBranch, FaHandshakeSimple} from "react-icons/fa6";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
 
-const Accordion = dynamic(() => import('@/components/ui/accordion'));
-const AccordionContent = dynamic(() => import('@/components/ui/accordion'));
-const AccordionItem = dynamic(() => import('@/components/ui/accordion'));
-const AccordionTrigger = dynamic(() => import('@/components/ui/accordion'));
-
-const Footer = dynamic(() => import('@/components/Footer'));
+const Accordion = dynamic(() => import("@/components/ui/accordion").then(mod => mod.Accordion));
+const AccordionItem = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionItem));
+const AccordionTrigger = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionTrigger));
+const AccordionContent = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionContent));
 
 const CheckIcon = () => {
     return (
