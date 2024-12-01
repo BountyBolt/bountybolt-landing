@@ -1,113 +1,371 @@
 import Image from "next/image";
+import dynamic from 'next/dynamic';
+import FormComp from "@/components/FormComp";
+import {FaBoltLightning, FaCodeBranch, FaHandshakeSimple} from "react-icons/fa6";
+import Header from "@/components/Header";
+
+const Accordion = dynamic(() => import('@/components/ui/accordion'));
+const AccordionContent = dynamic(() => import('@/components/ui/accordion'));
+const AccordionItem = dynamic(() => import('@/components/ui/accordion'));
+const AccordionTrigger = dynamic(() => import('@/components/ui/accordion'));
+
+const Footer = dynamic(() => import('@/components/Footer'));
+
+const CheckIcon = () => {
+    return (
+        <div className="flex items-center justify-center">
+            <div
+                className="flex items-center justify-center w-6 h-6 rounded-full bg-[#248F6D]"
+                aria-label="Checkmark Icon"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="w-4 h-4"
+                >
+                    <path
+                        fillRule="evenodd"
+                        d="M20.292 6.292a1 1 0 011.416 1.416l-11 11a1 1 0 01-1.416 0l-5-5a1 1 0 111.416-1.416L10 16.586l9.292-9.294z"
+                        clipRule="evenodd"
+                    />
+                </svg>
+            </div>
+        </div>
+    )
+}
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <main className="flex bg-[#091211] min-h-screen flex-col items-center justify-center">
+           <Header />
+            <svg className="absolute top-0"
+                 xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink"
+                 viewBox="0 0 800 450" opacity="0.66">
+                <defs>
+                    <filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%"
+                            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB">
+                        <feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic"
+                                        edgeMode="none" result="blur"></feGaussianBlur>
+                    </filter>
+                </defs>
+                <g filter="url(#bbblurry-filter)">
+                    <ellipse rx="277.5" ry="225.5" cx="405.551230690696" cy="-55.2087111039595"
+                             fill="#248f6d"></ellipse>
+                </g>
+            </svg>
+            <div
+                className="px-6 sm:px-16 lg:px-40 z-10 flex flex-col items-center justify-center pt-20 sm:pt-24 xl:pt-32 pb-16 sm:pb-24">
+                <div className="inline-block bg-gray-800 text-gray-300 text-sm px-4 py-2 rounded-full shadow-sm mb-4">
+                    <span className="flex items-center justify-center space-x-2">
+                      {/* Star Icon */}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        />
+                      </svg>
+                      <span className="text-sm">Empower Your Web3 Journey</span>
+                    </span>
+                </div>
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl text-white text-center font-medium leading-tight">
+                    Solve Issues, Earn Crypto – Empower Web3 Projects Today
+                </h1>
+                <p className="text-gray-400 text-center mt-4 text-sm sm:text-lg lg:text-xl leading-relaxed">
+                    Join a decentralized marketplace connecting blockchain innovators with skilled
+                    developers. <br/> Fund issues, fix
+                    problems, and grow the open-source Web3 ecosystem – all with secure crypto payments.
+                </p>
+                <FormComp/>
+            </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <div className="py-16 px-8 sm:px-16 lg:px-32 flex flex-col w-full">
+                <h2 className="text-gray-400 text-center text-lg sm:text-xl lg:text-2xl">
+                    Trusted by 50+ Companies and Open-Source Projects in Web3 and Blockchain
+                </h2>
+                <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
+                    <Image
+                        src="/0x.webp"
+                        width={120}
+                        height={80}
+                        alt="0x Logo"
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/ethfoundation.webp"
+                        width={120}
+                        height={80}
+                        alt="Ethereum Foundation Logo"
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/cryptocom.webp"
+                        width={120}
+                        height={80}
+                        alt="Crypto.com Logo"
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/Uniswap-Logo.webp"
+                        width={120}
+                        height={80}
+                        alt="Uniswap Logo"
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/kraken.webp"
+                        width={120}
+                        height={80}
+                        alt="Kraken Logo"
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/chainlink.webp"
+                        width={120}
+                        height={80}
+                        alt="Chainlink Logo"
+                        className="object-contain"
+                    />
+                </div>
+            </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <section className="flex flex-col w-full items-center bg-[url('/ooorganiz.svg')] bg-repeat py-16 px-32">
+                <div className="inline-block bg-gray-800 text-gray-300 text-sm px-4 py-2 rounded-full shadow-sm mb-4">
+                    <span className="flex items-center justify-center space-x-2">
+                        {/* Star Icon */}
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none"
+                             viewBox="0 0 24 24"
+                             stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <span className="text-sm">Discover How it Works</span>
+                    </span>
+                </div>
+                <h2 className="text-5xl font-bold text-white">How BountyBolt Works</h2>
+                <p className="text-gray-400 mt-2 text-lg px-24 text-center">
+                    Our platform makes connecting backers and hunters in the Web3 ecosystem seamless, secure, and
+                    rewarding.
+                    Here's how you can get started:
+                </p>
+                <div className="flex flex-row items-center justify-around w-full mt-16">
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+                    {/* Step 1 */}
+                    <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
+                        <div className="relative inline-block mb-6">
+                            <div
+                                className="absolute w-14 h-14 bg-[#194d40] rounded-md -top-2 -left-2 z-0 shadow-md"></div>
+                            <div
+                                className="w-14 h-14 bg-gradient-to-br from-[#248F6D] to-[#1a6e53] rounded-md flex items-center justify-center shadow-lg z-10 relative">
+                                <FaHandshakeSimple className="text-white text-2xl" />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+                            </div>
+                        </div>
+                        <h3 className="text-white text-xl font-bold mb-2">1. Post or Claim a Bounty</h3>
+                        <p className="text-gray-400">
+                            Backers post tasks with crypto rewards. Hunters browse and claim tasks.
+                        </p>
+                    </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+                    {/* Step 2 */}
+                    <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
+                        <div className="relative inline-block mb-6">
+                            <div
+                                className="absolute w-14 h-14 bg-[#194d40] rounded-md -top-2 -left-2 z-0 shadow-md"></div>
+                            <div
+                                className="w-14 h-14 bg-gradient-to-br from-[#248F6D] to-[#1a6e53] rounded-md flex items-center justify-center shadow-lg z-10 relative">
+                                <FaCodeBranch className="text-white text-xl" />
+                            </div>
+                        </div>
+                        <h3 className="text-white text-xl font-bold mb-2">2. Deliver the Solution</h3>
+                        <p className="text-gray-400">
+                            Hunters submit work (e.g., GitHub links or smart contracts).
+                        </p>
+                    </div>
+
+                    {/* Step 3 */}
+                    <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
+                        <div className="relative inline-block mb-6">
+                            <div
+                                className="absolute w-14 h-14 bg-[#194d40] rounded-md -top-2 -left-2 z-0 shadow-md"></div>
+                            <div
+                                className="w-14 h-14 bg-gradient-to-br from-[#248F6D] to-[#1a6e53] rounded-md flex items-center justify-center shadow-lg z-10 relative">
+                                <FaBoltLightning className="text-white text-xl" />
+                            </div>
+                        </div>
+                        <h3 className="text-white text-xl font-bold mb-2">3. Get Paid</h3>
+                        <p className="text-gray-400">
+                            Backers approve, and funds are sent to the hunter’s wallet.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+            <section className="flex flex-col w-full items-center py-16 px-6 sm:px-16 lg:px-32">
+                <div className="inline-block bg-gray-800 text-gray-300 text-sm px-4 py-2 rounded-full shadow-sm mb-4">
+                <span className="flex items-center justify-center space-x-2">
+                    {/* Star Icon */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    <span className="text-sm">Seamless Collaboration</span>
+                </span>
+                </div>
+                <h2 className="text-4xl sm:text-5xl text-center font-bold text-white">Unlock the Benefits of
+                    Decentralized Bounties</h2>
+                <p className="text-gray-400 mt-2 text-center text-lg max-w-4xl">
+                    Our platform bridges backers and developers in the Web3 ecosystem, enabling secure transactions,
+                    transparent collaboration, and rewarding contributions. Here's what makes it unique:
+                </p>
+                <div
+                    className="relative w-full border border-gray-400/40 sm:w-3/4 mt-8 rounded-2xl drop-shadow-[0px_0px_60px_rgba(36,143,109,0.5)]">
+                    <Image
+                        src="/dashboardss.webp"
+                        width={1920}
+                        height={1080}
+                        alt="Platform Features"
+                        className="rounded-2xl"
+                    />
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-8 mt-10 text-left max-w-5xl ">
+                    <div className="flex items-center">
+                        <div className="flex-shrink-0">
+                            <CheckIcon className="h-6 w-6"/>
+                        </div>
+                        <div className="ml-4">
+                            <h3 className="text-white font-bold text-lg">Secure Escrow Contracts</h3>
+                            <p className="text-gray-400 mt-1 text-base">
+                                Funds are held in smart contracts and released only when tasks are completed.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className="flex-shrink-0">
+                            <CheckIcon className="h-6 w-6"/>
+                        </div>
+                        <div className="ml-4">
+                            <h3 className="text-white font-bold text-lg">Transparent Workflow</h3>
+                            <p className="text-gray-400 mt-1 text-base">
+                                Backers and hunters can track progress and approve solutions in real-time.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Feature 3 */}
+                    <div className="flex items-center">
+                        <div className="flex-shrink-0">
+                            <CheckIcon className="h-6 w-6"/>
+                        </div>
+                        <div className="ml-4">
+                            <h3 className="text-white font-bold text-lg">Crypto Rewards</h3>
+                            <p className="text-gray-400 mt-1 text-base">
+                                Hunters earn rewards directly to their wallets, making payments seamless and trustless.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className="grid grid-cols-2 relative w-full items-center py-16 px-6 sm:px-16 lg:px-32 gap-16">
+                <svg className="absolute bottom-0"
+                     xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink"
+                     viewBox="0 0 800 450" opacity="0.53">
+                    <defs>
+                        <filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%"
+                                filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
+                                colorInterpolationFilters="sRGB">
+                            <feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%"
+                                            in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+                        </filter>
+                    </defs>
+                    <g filter="url(#bbblurry-filter)">
+                        <ellipse rx="277.5" ry="225.5" cx="393.1876220703125" cy="649.5185269442471"
+                                 fill="#248f6d"></ellipse>
+                    </g>
+                </svg>
+                <div className="flex flex-col justify-start col-span-1 z-10">
+                    <div
+                        className="inline-block bg-gray-800 text-gray-300 text-sm px-4 w-fit py-2 rounded-full shadow-sm mb-4">
+                        <span className="flex items-center justify-center space-x-2">
+                          {/* Star Icon */}
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                          </svg>
+                          <span className="text-sm">Exclusive Access</span>
+                        </span>
+                    </div>
+
+                    {/* Header */}
+                    <h2 className="text-4xl sm:text-5xl font-bold text-white">Shape the Future of Decentralized
+                        Collaboration</h2>
+                    <p className="text-gray-400 mt-4 text-lg max-w-4xl">
+                        Be among the first to explore our platform connecting Web3 innovators with global talent. By
+                        joining the waitlist, you’ll gain early access, insider updates, and exclusive opportunities to
+                        grow with us.
+                    </p>
+
+                    {/* Signup Form */}
+                    <FormComp/>
+
+                    {/* Privacy Note */}
+                    <p className="text-gray-500 mt-4 text-sm">
+                        Your email is safe with us. Unsubscribe anytime.
+                    </p>
+                </div>
+
+                <div className="flex flex-col z-10 col-span-1 text-white">
+                    <Accordion type="single" collapsible className="w-full">
+                        <AccordionItem value="item-1" className="border-white/10 py-1">
+                            <AccordionTrigger className="text-2xl hover:no-underline">What is
+                                BountyBolt?</AccordionTrigger>
+                            <AccordionContent>
+                                BountyBolt is a decentralized bounty marketplace for Web3 projects. Backers can post
+                                tasks and
+                                fund them with cryptocurrency, while developers (hunters) solve them to earn rewards.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-2" className="border-white/10 py-1">
+                            <AccordionTrigger className="text-2xl hover:no-underline">Which cryptocurrencies are
+                                supported?</AccordionTrigger>
+                            <AccordionContent>
+                                Currently, we support ETH and USDC on the Arbitrum network. We plan to expand support to
+                                more tokens in the future.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-3" className="border-white/10 py-1">
+                            <AccordionTrigger className="text-2xl hover:no-underline">When will BountyBolt
+                                launch?</AccordionTrigger>
+                            <AccordionContent>
+                                We’re planning a phased launch, starting with early adopters in Q1 2024. Joining the
+                                waitlist ensures you’re first to know.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-4" className="border-white/10 py-1">
+                            <AccordionTrigger className="text-2xl hover:no-underline">Who can join?</AccordionTrigger>
+                            <AccordionContent>
+                                Whether you’re a Web3 project backer or a developer looking for exciting opportunities,
+                                this platform is for you.
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </div>
+            </section>
+            <Footer />
+        </main>
+    );
 }
