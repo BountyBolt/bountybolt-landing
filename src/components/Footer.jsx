@@ -1,4 +1,4 @@
-import {FaGithub, FaInstagram, FaTwitter} from "react-icons/fa";
+import {FaGithub, FaTwitter} from "react-icons/fa";
 
 export default function Footer() {
     return (
@@ -33,22 +33,16 @@ export default function Footer() {
             <div className="flex flex-col sm:ml-auto sm:items-end">
                 <div className="flex flex-row gap-4 items-center mb-4">
                     {/* Twitter Logo */}
-                    <div
+                    <a href="https://twitter.com/BountyBolt" target="_blank" rel="noreferrer"
                         className="rounded-full ease-in-out transition-all border border-white/20 bg-gray-800 p-2 hover:bg-gray-700 cursor-pointer">
                         <FaTwitter className="text-white text-md"/>
-                    </div>
-
-                    {/* Instagram Logo */}
-                    <div
-                        className="rounded-full ease-in-out transition-all border border-white/20 bg-gray-800 p-2 hover:bg-gray-700 cursor-pointer">
-                        <FaInstagram className="text-white text-md"/>
-                    </div>
+                    </a>
 
                     {/* GitHub Logo */}
-                    <div
+                    <a href="https://github.com/BountyBolt/bountybolt-landing" target="_blank" rel="noreferrer"
                         className="rounded-full ease-in-out transition-all border border-white/20 bg-gray-800 p-2 hover:bg-gray-700 cursor-pointer">
                         <FaGithub className="text-white text-md"/>
-                    </div>
+                    </a>
                 </div>
                 <span className="text-gray-400 font-light text-md">Copyright © 2024 BountyBolt.</span>
             </div>

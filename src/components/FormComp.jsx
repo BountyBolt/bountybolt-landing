@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function FormComp() {
+export default function FormComp({type}) {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState(null);
 
@@ -36,7 +36,7 @@ export default function FormComp() {
         <div className="flex flex-col max-w-2xl flex-1 w-full">
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row items-center gap-2 mt-8 w-full"
+                className={`flex flex-col sm:flex-row items-center gap-2 mt-8 w-full ${type === "top" ? "sm:justify-center" : ""}`}
             >
                 <label htmlFor="email" className="sr-only">
                     Email Address
