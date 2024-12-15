@@ -110,7 +110,7 @@ export default function Home() {
 
             <div className="pb-16 px-8 sm:px-16 lg:px-32 flex flex-col w-full">
                 <h2 className="text-gray-400 text-center text-lg sm:text-xl lg:text-2xl">
-                    Trusted by 50+ Companies and Open-Source Projects in Web3 and Blockchain
+                    Trusted by Leading Open-Source Web3 Projects and Innovators
                 </h2>
                 <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
                     <Image
