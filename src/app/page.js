@@ -1,9 +1,9 @@
 import Image from "next/image";
-import FormComp from "@/components/FormComp";
-import {FaBoltLightning, FaCodeBranch, FaHandshakeSimple} from "react-icons/fa6";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
+import HowItWorks from "@/components/HowItWorks";
+import {FaDiscord} from "react-icons/fa";
 
 const Accordion = dynamic(() => import("@/components/ui/accordion").then(mod => mod.Accordion));
 const AccordionItem = dynamic(() => import("@/components/ui/accordion").then(mod => mod.AccordionItem));
@@ -34,10 +34,26 @@ const CheckIcon = () => {
     )
 }
 
+const JoinDiscord = ({position}) => {
+    return (
+        <div className={` ${position === "top" && "justify-center"} flex mt-2`}>
+            <a
+                href="https://discord.gg/x3C7nBDr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#248F6D] flex mt-4 flex-row items-center transition-all ease-in-out text-gray-200 text-lg font-semibold px-8 py-3 rounded-md hover:bg-[#1a6e53] focus:outline-none focus:ring-2 focus:ring-[#248F6D] focus:ring-offset-2"            >
+                Join our Discord
+                <FaDiscord className="text-white text-2xl ml-2"/>
+
+            </a>
+        </div>
+    )
+}
 export default function Home() {
     return (
-        <main className="flex bg-[#091211] min-h-screen flex-col items-center justify-center">
-           <Header />
+        <main
+            className="flex bg-[#091211] min-h-screen flex-col items-center justify-center">
+            <Header/>
             <svg className="absolute top-0"
                  xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink"
                  viewBox="0 0 800 450" opacity="0.66">
@@ -76,7 +92,7 @@ export default function Home() {
                       <span className="text-sm">Empower Your Web3 Journey</span>
                     </span>
                 </div>
-                <h1 className="text-3xl sm:text-5xl lg:text-7xl text-white text-center font-medium leading-tight">
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl/[1.1] text-white text-center font-medium leading-[1.3]">
                     Solve Issues, Earn Crypto – Empower Web3 Projects Today
                 </h1>
                 <p className="text-gray-400 text-center mt-4 text-sm sm:text-lg lg:text-xl leading-relaxed">
@@ -84,13 +100,15 @@ export default function Home() {
                     developers. <br/> Fund issues, fix
                     problems, and grow the open-source Web3 ecosystem – all with secure crypto payments.
                 </p>
-                <FormComp type={"top"}/>
-                <p className="text-gray-500 mt-2 text-sm">
-                    Your email is safe with us. Unsubscribe anytime.
-                </p>
+                <div className="flex flex-col max-w-2xl flex-1 w-full">
+                    <JoinDiscord position="top" />
+                    <p className="text-md text-gray-300 text-center mt-4">
+                        Join for access to the BountyBolt airdrop and early access to the platform.
+                    </p>
+                </div>
             </div>
 
-            <div className="py-16 px-8 sm:px-16 lg:px-32 flex flex-col w-full">
+            <div className="pb-16 px-8 sm:px-16 lg:px-32 flex flex-col w-full">
                 <h2 className="text-gray-400 text-center text-lg sm:text-xl lg:text-2xl">
                     Trusted by 50+ Companies and Open-Source Projects in Web3 and Blockchain
                 </h2>
@@ -139,79 +157,7 @@ export default function Home() {
                     />
                 </div>
             </div>
-
-            <section
-                className="flex flex-col w-full items-center bg-[url('/ooorganiz.svg')] bg-repeat py-16 px-8 sm:px-16 lg:px-32">
-                <div className="inline-block bg-gray-800 text-gray-300 text-sm px-4 py-2 rounded-full shadow-sm mb-4">
-        <span className="flex items-center justify-center space-x-2">
-            {/* Star Icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none"
-                 viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-            </svg>
-            <span className="text-sm">Discover How it Works</span>
-        </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center">How BountyBolt
-                    Works</h2>
-                <p className="text-gray-400 mt-2 text-base sm:text-lg px-4 sm:px-12 lg:px-24 text-center">
-                    Our platform makes connecting backers and contributors in the Web3 ecosystem seamless, secure, and
-                    rewarding. Here's how you can get started:
-                </p>
-                <div
-                    className="flex flex-col lg:flex-row items-center justify-around w-full mt-16 space-y-8 lg:space-y-0">
-
-                    {/* Step 1 */}
-                    <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
-                        <div className="relative inline-block mb-6">
-                            <div
-                                className="absolute w-14 h-14 bg-[#194d40] rounded-md -top-2 -left-2 z-0 shadow-md"></div>
-                            <div
-                                className="w-14 h-14 bg-gradient-to-br from-[#248F6D] to-[#1a6e53] rounded-md flex items-center justify-center shadow-lg z-10 relative">
-                                <FaHandshakeSimple className="text-white text-2xl"/>
-                            </div>
-                        </div>
-                        <h3 className="text-white text-lg sm:text-xl font-bold mb-2">1. Post or Claim a Bounty</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">
-                            Backers post tasks with crypto rewards. Contributors browse and claim tasks.
-                        </p>
-                    </div>
-
-                    {/* Step 2 */}
-                    <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
-                        <div className="relative inline-block mb-6">
-                            <div
-                                className="absolute w-14 h-14 bg-[#194d40] rounded-md -top-2 -left-2 z-0 shadow-md"></div>
-                            <div
-                                className="w-14 h-14 bg-gradient-to-br from-[#248F6D] to-[#1a6e53] rounded-md flex items-center justify-center shadow-lg z-10 relative">
-                                <FaCodeBranch className="text-white text-xl"/>
-                            </div>
-                        </div>
-                        <h3 className="text-white text-lg sm:text-xl font-bold mb-2">2. Deliver the Solution</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">
-                            Contributors complete the work and submit a pull request.
-                        </p>
-                    </div>
-
-                    {/* Step 3 */}
-                    <div className="rounded-lg text-center max-w-xs mx-auto shadow-lg relative">
-                        <div className="relative inline-block mb-6">
-                            <div
-                                className="absolute w-14 h-14 bg-[#194d40] rounded-md -top-2 -left-2 z-0 shadow-md"></div>
-                            <div
-                                className="w-14 h-14 bg-gradient-to-br from-[#248F6D] to-[#1a6e53] rounded-md flex items-center justify-center shadow-lg z-10 relative">
-                                <FaBoltLightning className="text-white text-xl" />
-                            </div>
-                        </div>
-                        <h3 className="text-white text-lg sm:text-xl font-bold mb-2">3. Get Paid</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">
-                            The project maintainers approve, and funds are sent to the contributor’s wallet.
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <HowItWorks/>
             <section className="flex flex-col w-full items-center py-16 px-6 sm:px-16 lg:px-32">
                 <div className="inline-block bg-gray-800 text-gray-300 text-sm px-4 py-2 rounded-full shadow-sm mb-4">
                 <span className="flex items-center justify-center space-x-2">
@@ -241,8 +187,8 @@ export default function Home() {
                         className="rounded-2xl"
                     />
                 </div>
-
-                <div className="lg:grid flex flex-col sm:flex-row sm:items-center lg:grid-cols-3 gap-8 mt-10 text-left max-w-5xl ">
+                <div
+                    className="lg:grid flex flex-col sm:flex-row sm:items-center lg:grid-cols-3 gap-8 mt-10 text-left max-w-5xl ">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <CheckIcon className="h-6 w-6"/>
@@ -262,7 +208,7 @@ export default function Home() {
                         <div className="ml-4">
                             <h3 className="text-white font-bold text-lg">Secure Escrow Contracts</h3>
                             <p className="text-gray-400 mt-1 text-base">
-                                Funds are held in smart contracts and released only when a pull request is approved.
+                                Funds are held in smart contracts and released released automatically upon resolution.
                             </p>
                         </div>
                     </div>
@@ -275,7 +221,8 @@ export default function Home() {
                         <div className="ml-4">
                             <h3 className="text-white font-bold text-lg">Crypto Rewards</h3>
                             <p className="text-gray-400 mt-1 text-base">
-                                Contributors earn rewards directly to their wallets, making payments seamless and trustless.
+                                Contributors earn rewards directly to their wallets, making payments seamless and
+                                trustless.
                             </p>
                         </div>
                     </div>
@@ -326,12 +273,12 @@ export default function Home() {
                     </p>
 
                     {/* Signup Form */}
-                    <FormComp/>
-
-                    {/* Privacy Note */}
-                    <p className="text-gray-500 mt-4 text-sm">
-                        Your email is safe with us. Unsubscribe anytime.
-                    </p>
+                    <div className="flex flex-col max-w-2xl flex-1 w-full">
+                        <JoinDiscord position="bottom"/>
+                        <p className="text-md text-gray-300 mt-4">
+                            Join for access to the BountyBolt airdrop and early access to the platform.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Right Column */}
@@ -342,9 +289,7 @@ export default function Home() {
                                 What is BountyBolt?
                             </AccordionTrigger>
                             <AccordionContent className="text-sm sm:text-base">
-                                BountyBolt is a decentralized bounty marketplace for Web3 projects. Backers can post
-                                tasks and
-                                fund them with cryptocurrency, while developers (contributors) solve them to earn rewards.
+                                BountyBolt is a decentralized bounty marketplace for Web3 projects. Backers can fund existing GitHub issues or post new ones, while developers (contributors) solve them to earn cryptocurrency rewards.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2" className="border-white/10 py-2">
@@ -352,17 +297,16 @@ export default function Home() {
                                 What network will BountyBolt support?
                             </AccordionTrigger>
                             <AccordionContent className="text-sm sm:text-base">
-                                BountyBolt will initially support the Arbitrum network, with plans to expand to other
+                                BountyBolt will initially support the Base network, with plans to expand to other
                                 blockchains in the future.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-3" className="border-white/10 py-2">
                             <AccordionTrigger className="text-lg sm:text-xl hover:no-underline">
-                                When will BountyBolt launch?
+                                Can I fund issues I don’t own?
                             </AccordionTrigger>
                             <AccordionContent className="text-sm sm:text-base">
-                                We’re planning a phased launch, starting with early adopters in Q1 2024. Joining the
-                                waitlist ensures you’re first to know.
+                                Yes! You can fund issues from any public GitHub repository. Your funding incentivizes developers to solve the issue faster, even if you don’t own the project.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-4" className="border-white/10 py-2">
@@ -370,14 +314,33 @@ export default function Home() {
                                 How do I get paid on BountyBolt?
                             </AccordionTrigger>
                             <AccordionContent className="text-sm sm:text-base">
-                                Once a pull request is approved by the backer, funds will be released to the contributor’s wallet in the
-                                cryptocurrency of their choice. This will be automated through the use of oracles & smart contracts.
+                                Once a pull request is approved by the backer, funds will be released to the
+                                contributor’s wallet in the
+                                cryptocurrency of their choice. This will be automated through the use of oracles &
+                                smart contracts.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-5" className="border-white/10 py-2">
+                            <AccordionTrigger className="text-lg sm:text-xl hover:no-underline">
+                                How do issue contribution payments work?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-sm sm:text-base">
+                                Payments can be made in cryptocurrency or fiat.
+                                Fiat payments are securely converted to crypto and held in escrow by smart contracts until the issue is resolved.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-6" className="border-white/10 py-2">
+                            <AccordionTrigger className="text-lg sm:text-xl hover:no-underline">
+                                What if no one solves my issue?
+                            </AccordionTrigger>
+                            <AccordionContent className="text-sm sm:text-base">
+                                You can specify a deadline for issue resolution. If the deadline passes without a solution, funds will be returned to the backer.
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
                 </div>
             </section>
-            <Footer />
+            <Footer/>
         </main>
     );
 }

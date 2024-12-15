@@ -1,7 +1,14 @@
 // app/api/subscribe/route.js
 import { NextResponse } from 'next/server';
+import mailchimp from "@mailchimp/mailchimp_marketing"
+
 
 export async function POST(request) {
+    mailchimp.setConfig({
+        apiKey: process.env.MAILCHIMP_API_KEY,
+        server: "us20"
+    });
+
     try {
         // Parse the JSON request body
         const { email } = await request.json();
@@ -18,27 +25,16 @@ export async function POST(request) {
         }
 
         // Send a POST request to the MailerLite API
-        const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.MAILERLITE_API_KEY}`,
-            },
-            body: JSON.stringify({
-                email,
-                groups: ["139446969113249365"], // Add the subscriber to the specified group(s)
-            }),
+        const response = await mailchimp.lists.addListMember("ef389e90ce", {
+            email_address: email,
+            status: "subscribed",
         });
 
-        // Handle non-200 responses from MailerLite
-        if (!response.ok) {
-            const errorData = await response.json();
-            return NextResponse.json({ error: errorData.message }, { status: response.status });
-        }
-
         // Parse and return the successful response
-        const data = await response.json();
-        return NextResponse.json(data, { status: 201 });
+        return NextResponse.json({
+            message: `Successfully added contact. Contact ID: ${response.id}`,
+        }, { status: 200 });
+
     } catch (error) {
         // Handle unexpected errors (e.g., network issues)
         console.error('Error adding subscriber:', error);

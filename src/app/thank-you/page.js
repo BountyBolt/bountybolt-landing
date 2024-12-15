@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {FaDiscord} from "react-icons/fa";
 
 export default function ThankYou() {
     return (
@@ -48,13 +49,18 @@ export default function ThankYou() {
                 {/* Optional: Next Steps or Call to Action */}
                 <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="/"
-                       className="w-full sm:w-auto bg-[#248F6D] text-white text-lg font-semibold px-6 py-3 rounded-md hover:bg-[#1a6e53] focus:outline-none focus:ring-2 focus:ring-[#248F6D] focus:ring-offset-2">
-                        Go to Homepage
+                       className="w-full sm:w-auto bg-gray-800 text-white text-lg font-semibold px-6 py-3 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-[#248F6D] focus:ring-offset-2">
+                        Return Home
+                    </a>
+                    <a href="https://discord.gg/ETGAhrsWRw"
+                       className="w-full sm:w-auto flex flex-row items-center bg-[#248F6D] text-white text-lg font-semibold px-6 py-3 rounded-md hover:bg-[#1a6e53] focus:outline-none focus:ring-2 focus:ring-[#248F6D] focus:ring-offset-2">
+                        Join our Discord
+                        <FaDiscord className="text-white text-2xl ml-2"/>
                     </a>
                 </div>
             </div>
             {/* Footer */}
-            <Footer />
+            <Footer/>
         </main>
     );
 }
